@@ -1,0 +1,36 @@
+
+Table listings {
+  id bigint [pk]
+  name varchar(255)
+  host_id bigint [ref: > hosts.id]
+  neighbourhood_id text [ref: > neighbourhoods.id]
+  latitude double
+  longitude double
+  room_type varchar(255)
+  price int
+  minimum_nights int
+  availability_365 int
+}
+
+Table hosts {
+  id bigint [pk]
+  host_name varchar(255)
+  calculated_host_listings_count int
+}
+
+Table neighbourhoods {
+  id text [pk]
+  neighbourhood varchar(255)
+  neighbourhood_group varchar(255)
+}
+
+Table reviews {
+  id text [pk]
+  listing_id bigint [ref: > listings.id]
+  number_of_reviews int
+  last_review date
+  reviews_per_month numeric
+  review_title varchar(255)
+  review_descrciption varchar(255)
+  review_date date
+}
